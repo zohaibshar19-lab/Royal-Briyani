@@ -1,1 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>Royal Biryani | Fresh Chicken Biryani</title>
+  <meta name="description" content="Fresh and delicious chicken biryani, raita, cold drinks and special combos. Order now.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="#" class="logo">
+        <span>🍗</span>
+        Royal Biryani
+      </a>
+
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#menu">Menu</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <button class="cart-button" onclick="openCart()">
+        🛒 <span id="cartCount">0</span>
+      </button>
+    </div>
+  </header>
+
+
+  <!-- HERO -->
+  <main>
+
+    <section class="hero" id="home">
+      <div class="hero-content">
+
+        <div class="hero-text">
+          <span class="badge">🔥 Freshly Cooked Every Day</span>
+
+          <h1>
+            Taste the
+            <span>Royal</span>
+            Biryani
+          </h1>
+
+          <p>
+            Fragrant basmati rice, tender chicken and our special
+            blend of spices. Made fresh and served hot.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="#menu" class="primary-btn">
+              View Menu →
+            </a>
+
+            <a href="#contact" class="secondary-btn">
+              📍 Find Us
+            </a>
+          </div>
+
+          <div class="hero-info">
+            <div>
+              <strong>4.9 ⭐</strong>
+              <small>Customer Rating</small>
+            </div>
+
+            <div>
+              <strong>Fresh</strong>
+              <small>Cooked Daily</small>
+            </div>
+
+            <div>
+              <strong>Fast</strong>
+              <small>Service</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-food">
+          <div class="food-circle"></div>
+
+          <!-- Replace this with your restaurant's food image -->
+          <img
+            src="https://images.unsplash.com/photo-1563379091339-03246963d96c?auto=format&fit=crop&w=900&q=85"
+            alt="Chicken Biryani"
+          >
+
+          <div class="price-card">
+            <small>Special Biryani</small>
+            <strong>Rs. 350</strong>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- SPECIAL OFFER -->
+    <section class="offer">
+      <div>
+        <span>🔥 TODAY'S SPECIAL</span>
+        <h2>Biryani + Raita + Cold Drink</h2>
+        <p>Everything you need for a perfect meal.</p>
+      </div>
+
+      <div class="offer-price">
+        <del>Rs. 500</del>
+        <strong>Rs. 449</strong>
+      </div>
+
+      <button onclick="addCombo()" class="primary-btn">
+        Add Combo
+      </button>
+    </section>
+
+
+    <!-- MENU -->
+    <section class="menu-section" id="menu">
+
+      <div class="section-heading">
+        <span>OUR MENU</span>
+        <h2>Made With Love</h2>
+        <p>Choose your favorite meal and order directly.</p>
+      </div>
+
+      <div class="category-buttons">
+        <button class="category active" onclick="filterMenu('all', this)">All</button>
+        <button class="category" onclick="filterMenu('biryani', this)">🍗 Biryani</button>
+        <button class="category" onclick="filterMenu('drinks', this)">🥤 Drinks</button>
+        <button class="category" onclick="filterMenu('sides', this)">🥣 Sides</button>
+        <button class="category" onclick="filterMenu('combos', this)">🔥 Combos</button>
+      </div>
+
+      <div class="menu-grid" id="menuGrid">
+
+        <!-- BIRYANI -->
+        <article class="food-card" data-category="biryani">
+          <div class="food-image">
+            <img src="https://images.unsplash.com/photo-1563379091339-03246963d96c?auto=format&fit=crop&w=700&q=80" alt="Chicken Biryani">
+            <span class="popular">POPULAR</span>
+          </div>
+
+          <div class="food-details">
+            <h3>Chicken Biryani</h3>
+            <p>Fragrant basmati rice with tender chicken and special spices.</p>
+
+            <div class="food-bottom">
+              <strong>Rs. 350</strong>
+              <button onclick="addToCart('Chicken Biryani', 350)">+</button>
+            </div>
+          </div>
+        </article>
+
+
+        <article class="food-card" data-category="biryani">
+          <div class="food-image">
+            <img src="https://images.unsplash.com/photo-1599043513900-ed6fe01d3833?auto=format&fit=crop&w=700&q=80" alt="Chicken Biryani Full">
+          </div>
+
+          <div class="food-details">
+            <h3>Special Chicken Biryani</h3>
+            <p>Extra chicken, extra flavor and our signature masala.</p>
+
+            <div class="food-bottom">
+              <strong>Rs. 450</strong>
+              <button onclick="addToCart('Special Chicken Biryani', 450)">+</button>
+            </div>
+          </div>
+        </article>
+
+
+        <!-- SIDES -->
+        <article class="food-card" data-category="sides">
+          <div class="food-image">
+            <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=700&q=80" alt="Raita">
+          </div>
+
+          <div class="food-details">
+            <h3>Fresh Raita</h3>
+            <p>Cool, creamy and perfectly seasoned.</p>
+
+            <div class="food-bottom">
+              <strong>Rs. 80</strong>
+              <button onclick="addToCart('Fresh Raita', 80)">+</button>
+            </div>
+          </div>
+        </article>
+
+
+        <article class="food-card" data-category="sides">
+          <div class="food-image">
+            <img src="https://images.unsplash.com/photo-1547496502-affa22d38842?auto=format&fit=crop&w=700&q=80" alt="Fresh Salad">
+          </div>
+
+          <div class="food-details">
+            <h3>Fresh Salad</h3>
+            <p>Fresh cucumber, tomato, onion and lemon.</p>
+
+            <div class="food-bottom">
+              <strong>Rs. 70</strong>
+              <button onclick="addToCart('Fresh Salad', 70)">+</button>
+            </div>
+          </div>
+        </article>
+
+
+        <!-- DRINKS -->
+        <article class="food-card" data-category="drinks">
+          <div class="food-image">
+            <img src="https://images.unsplash.com/photo-1629203849820-fdd70d49c38e?auto=format&fit=crop&w=700&q=80" alt="Cold Drink">
+          </div>
+
+          <div class="food-details">
+            <h3>Cold Drink</h3>
+            <p>Chilled soft drink served ice cold.</p>
+
+            <div class="food-bottom">
+              <strong>Rs. 100</strong>
+              <button onclick="addToCart('Cold Drink', 100)">+</button>
+            </div>
+          </div>
+        </article>
+
+
+        <!-- COMBO -->
+        <article class="food-card combo-card" data-category="combos">
+          <div class="food-image">
+            <img src="https://images.unsplash.com/photo-1563379091339-03246963d96c?auto=format&fit=crop&w=700&q=80" alt="Biryani Combo">
+            <span class="popular">BEST VALUE</span>
+          </div>
+
+          <div class="food-details">
+            <h3>Royal Combo</h3>
+            <p>Biryani + Raita + Salad + Cold Drink.</p>
+
+            <div class="food-bottom">
+              <strong>Rs. 449</strong>
+              <button onclick="addToCart('Royal Combo', 449)">+</button>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+
+      <div class="about-image">
+        <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=900&q=85" alt="Fresh food">
+      </div>
+
+      <div class="about-content">
+        <span>OUR STORY</span>
+
+        <h2>Simple Ingredients.<br>Big Flavor.</h2>
+
+        <p>
+          We believe good biryani doesn't need complicated ingredients.
+          It needs fresh rice, quality chicken, carefully selected spices
+          and a lot of love.
+        </p>
+
+        <div class="features">
+          <div>
+            <span>🍗</span>
+            <div>
+              <strong>Fresh Chicken</strong>
+              <p>Prepared fresh every day.</p>
+            </div>
+          </div>
+
+          <div>
+            <span>🌾</span>
+            <div>
+              <strong>Premium Rice</strong>
+              <p>Long-grain fragrant basmati.</p>
+            </div>
+          </div>
+
+          <div>
+            <span>❤️</span>
+            <div>
+              <strong>Made With Care</strong>
+              <p>Every plate prepared with care.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+
+    <!-- REVIEWS -->
+    <section class="reviews">
+
+      <div class="section-heading">
+        <span>WHAT PEOPLE SAY</span>
+        <h2>Our Customers Love Us</h2>
+      </div>
+
+      <div class="review-grid">
+
+        <div class="review">
+          <div class="stars">★★★★★</div>
+          <p>
+            "Really tasty biryani. The chicken was soft and the masala
+            was perfect."
+          </p>
+          <strong>Ahmed K.</strong>
+        </div>
+
+        <div class="review">
+          <div class="stars">★★★★★</div>
+          <p>
+            "The combo is great value. Biryani, raita and cold drink
+            all together."
+          </p>
+          <strong>Usman R.</strong>
+        </div>
+
+        <div class="review">
+          <div class="stars">★★★★★</div>
+          <p>
+            "Fresh, hot and delicious. Definitely ordering again."
+          </p>
+          <strong>Ali M.</strong>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+
+      <div class="contact-content">
+
+        <span>COME VISIT US</span>
+        <h2>Hungry?<br>We're Ready.</h2>
+
+        <div class="contact-items">
+
+          <div>
+            <span>📍</span>
+            <div>
+              <strong>Our Location</strong>
+              <p>Your Shop Address, Your City</p>
+            </div>
+          </div>
+
+          <div>
+            <span>📞</span>
+            <div>
+              <strong>Call Us</strong>
+              <p>03166653527</p>
+            </div>
+          </div>
+
+          <div>
+            <span>🕐</span>
+            <div>
+              <strong>Opening Hours</strong>
+              <p>11:00 AM – 11:00 PM</p>
+            </div>
+          </div>
+
+        </div>
+
+        <a
+          href="https://wa.me/923043765809"
+          target="_blank"
+          class="whatsapp-btn"
+        >
+          💬 Order on WhatsApp
+        </a>
+
+      </div>
+
+      <div class="map">
+        <div class="map-placeholder">
+          📍
+          <strong>Find Us Here</strong>
+          <span>Your City, Pakistan</span>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- CART -->
+  <div class="cart-overlay" id="cartOverlay" onclick="closeCart(event)">
+
+    <div class="cart" onclick="event.stopPropagation()">
+
+      <div class="cart-header">
+        <h2>Your Order</h2>
+        <button onclick="closeCart()">×</button>
+      </div>
+
+      <div id="cartItems" class="cart-items">
+        <p class="empty-cart">Your cart is empty.</p>
+      </div>
+
+      <div class="cart-footer">
+
+        <div class="total">
+          <span>Total</span>
+          <strong>Rs. <span id="cartTotal">0</span></strong>
+        </div>
+
+        <button class="whatsapp-order" onclick="orderOnWhatsApp()">
+          💬 Order on WhatsApp
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- MOBILE NAV -->
+  <div class="mobile-order">
+    <button onclick="openCart()">
+      🛒 View Order
+      <span id="mobileCartCount">0</span>
+    </button>
+  </div>
+
+
+  <footer>
+    <div class="footer-content">
+      <div class="logo">
+        🍗 Royal Biryani
+      </div>
+
+      <p>Fresh biryani. Big flavor. ❤️</p>
+
+      <small>© 2026 Royal Biryani. All rights reserved.</small>
+    </div>
+  </footer>
+
+
+  <script src="script.js"></script>
+
+</body>
+</html>
