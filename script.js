@@ -208,7 +208,7 @@ function orderOnWhatsApp() {
 
 
   // CHANGE THIS NUMBER TO THE RESTAURANT'S WHATSAPP NUMBER
-  const phoneNumber = "923001234567";
+  const phoneNumber = "923166653527";
 
   const whatsappURL =
     `https://wa.me/${phoneNumber}?text=${message}`;
